@@ -1,12 +1,19 @@
+import { useState } from "react"
+
 import Perfil from "./components/Perfil"
 import Formulario from "./components/Formulario"
 
 function App() {
-  
+  const [formularioEstaVisivel, setFormularioEstaVisivel] = useState(true);
   return (
     <>
       <Perfil nome="Vitor" endereco="https://github.com/VitorV9.png"/>
-      <Formulario />
+      
+      {formularioEstaVisivel && (
+        <Formulario />
+      )}
+
+      <button onClick={() => setFormularioEstaVisivel(!formularioEstaVisivel)} type="button">toggle form</button>
     </>
   )
 }
